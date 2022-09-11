@@ -54,8 +54,8 @@ class WindowTransitionCoordinator<Target: WindowTransitionTarget> {
             return
         }
 
-        if focusedIndex == 0 && target?.currentLayout()?.layoutKey == TwoPaneLayout<Window>.layoutKey {
-            // If main window is focused and layout is two-pane - swap the two top-most windows, keep focus on the main window
+        if focusedIndex == 0 {
+            // If main window is focused - swap the two top-most windows, keep focus on the main window
             target?.executeTransition(.switchWindows(focusedWindow, windows[1]))
             windows[1].focus()
             return
